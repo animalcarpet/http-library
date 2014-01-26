@@ -46,6 +46,10 @@ class HTTP_Library
 
 	/**
 	 * Perform a GET Request
+	 * @param  String $url     HTTP endpoint to connect to
+	 * @param  array  $query   Key/Value list of query parameters
+	 * @param  array  $headers Key/Value list of headers
+	 * @return Array           Response Object
 	 */
 	public function get($url, $query = array(), $headers = array())
 	{
@@ -54,6 +58,12 @@ class HTTP_Library
 
 	/**
 	 * Perform a POST Request
+	 * @param  String $url     HTTP endpoint to connect to
+	 * @param  array  $query   Key/Value list of query parameters
+	 * @param  array  $data    Key/Value list of POST Values,
+	 *                         you can also supply a file by using @/path/to/file
+	 * @param  array  $headers Key/Value list of headers
+	 * @return Array           Response Object
 	 */
 	public function post($url, $query = array(), $data = array(), $headers = array())
 	{
@@ -62,6 +72,12 @@ class HTTP_Library
 
 	/**
 	 * Perform a PUT Request
+	 * @param  String $url     HTTP endpoint to connect to
+	 * @param  array  $query   Key/Value list of query parameters
+	 * @param  array  $data    Key/Value list of POST Values,
+	 *                         you can also supply a file by using @/path/to/file
+	 * @param  array  $headers Key/Value list of headers
+	 * @return Array           Response Object
 	 */
 	public function put($url, $query = array(), $data = array(), $headers = array())
 	{
@@ -70,6 +86,10 @@ class HTTP_Library
 
 	/**
 	 * Perform a DELETE Request
+	 * @param  String $url     HTTP endpoint to connect to
+	 * @param  array  $query   Key/Value list of query parameters
+	 * @param  array  $headers Key/Value list of headers
+	 * @return Array           Response Object
 	 */
 	public function delete($url, $query = array(), $headers = array())
 	{
@@ -78,6 +98,10 @@ class HTTP_Library
 
 	/**
 	 * Perform a OPTIONS Request
+	 * @param  String $url     HTTP endpoint to connect to
+	 * @param  array  $query   Key/Value list of query parameters
+	 * @param  array  $headers Key/Value list of headers
+	 * @return Array           Response Object
 	 */
 	public function options($url, $query = array(), $headers = array())
 	{
@@ -87,6 +111,10 @@ class HTTP_Library
 
 	/**
 	 * Perform a TRACE Request
+	 * @param  String $url     HTTP endpoint to connect to
+	 * @param  array  $query   Key/Value list of query parameters
+	 * @param  array  $headers Key/Value list of headers
+	 * @return Array           Response Object
 	 */
 	public function trace($url, $query = array(), $headers = array())
 	{
