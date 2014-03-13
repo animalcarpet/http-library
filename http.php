@@ -175,7 +175,8 @@ class HTTP_Library
 			CURLOPT_RETURNTRANSFER 	=> true,
 			CURLOPT_URL 			=> $url,
 			CURLOPT_USERAGENT		=> $this->_useragent,
-			CURLOPT_HTTPHEADER		=> (array)$headers
+			CURLOPT_HTTPHEADER		=> (array)$headers,
+			CURLOPT_SAFE_UPLOAD		=> false,
 		);
 
 		/**
@@ -191,7 +192,22 @@ class HTTP_Library
 				 * @todo we need to find an actual fix for this since 
 				 *       we have to use a pseudo fix to pass in nested arrays through post
 				 */
-				$options[CURLOPT_POSTFIELDS] 	= str_replace(array('%5B','%5D'), array('[',']'), http_build_query($data));
+				if(isset($headers['Content-Type']) && $headers['Content-Type'] == "multipart/form-data"){
+					
+
+					if(IS_PHP5_5 || IS_PHP6){
+						foreach ($data as $key => $value) {
+							if($value[0] == '@'){
+								$data[$key] = new CurlFile(substr($value, 1));
+							}
+						}
+					}
+				
+					$options[CURLOPT_POSTFIELDS] = $data;
+				}else{
+					$options[CURLOPT_POSTFIELDS] 	= str_replace(array('%5B','%5D'), array('[',']'), http_build_query($data));
+				}
+
 			break;
 			case 'PUT':
 			break;
