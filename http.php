@@ -176,7 +176,6 @@ class HTTP_Library
 			CURLOPT_URL 			=> $url,
 			CURLOPT_USERAGENT		=> $this->_useragent,
 			CURLOPT_HTTPHEADER		=> (array)$headers,
-			CURLOPT_SAFE_UPLOAD		=> false,
 		);
 
 		/**
