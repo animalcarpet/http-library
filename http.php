@@ -194,7 +194,7 @@ class HTTP_Library
 				if(isset($headers['Content-Type']) && $headers['Content-Type'] == "multipart/form-data"){
 					
 
-					if(IS_PHP5_5 || IS_PHP6){
+					if(class_exists("CURLFile")){
 						foreach ($data as $key => $value) {
 							if($value[0] == '@'){
 								$data[$key] = new CurlFile(substr($value, 1));
