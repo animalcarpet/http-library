@@ -173,6 +173,7 @@ class HTTP_Library
 		 */
 		$options = array(
 			CURLOPT_RETURNTRANSFER 	=> true,
+			CURLOPT_SSL_VERIFYPEER  => false,
 			CURLOPT_URL 			=> $url,
 			CURLOPT_USERAGENT		=> $this->_useragent,
 			CURLOPT_HTTPHEADER		=> (array)$headers,
